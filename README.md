@@ -74,179 +74,179 @@ Below is the data structure extracted from each function found in a PHP file:
     arg_flags: list [int, int, int]
     last_literal: int
     literals: [
-    	{
-    		type: str
-    		value: str
-    	}
+        {
+            type: str
+            value: str
+        }
     ]
   }
 - instructions = [
-	{
-		op1: {
-			type:  str
-			value: str
-			variable_number: int
-		}
-		op2: {
-			type:  str
-			value: str
-			variable_number: int
-		}
-		result: {
-			type:  str
-			value: str
-			variable_number: int
-		}
-		num: int
-		extended_value: int
-		lineno: int
-		opcode: int
-		opcode_name: str
-		opcode_flags: int
-		op1_type: int
-		op2_type: int
-		result_type: int
-	}
+    {
+        op1: {
+            type:  str
+            value: str
+            variable_number: int
+        }
+        op2: {
+            type:  str
+            value: str
+            variable_number: int
+        }
+        result: {
+            type:  str
+            value: str
+            variable_number: int
+        }
+        num: int
+        extended_value: int
+        lineno: int
+        opcode: int
+        opcode_name: str
+        opcode_flags: int
+        op1_type: int
+        op2_type: int
+        result_type: int
+    }
 ]
 - cfg = {
-	blocks_count: int
-	edges_count: int
-	blocks: [
-		{
-			start: int
-			len: int
-			successors_count: int
-			predecessors_count: int
-			predecessor_offset: int
-			idom: int
-			loop_header: int
-			level: int
-			children: int
-			next_child: int
-			successors_storage: [int, int]
-			successors: [int, int]
-		}
-	]
-	predecessors: [int, int]
+    blocks_count: int
+    edges_count: int
+    blocks: [
+        {
+            start: int
+            len: int
+            successors_count: int
+            predecessors_count: int
+            predecessor_offset: int
+            idom: int
+            loop_header: int
+            level: int
+            children: int
+            next_child: int
+            successors_storage: [int, int]
+            successors: [int, int]
+        }
+    ]
+    predecessors: [int, int]
 }
 - dfg = [
-	{
-		block_index: int
-		var_def: [
-			{
-				var_num: int
-				var_name: str
-			}
-		]
-		var_use: [
-			{
-				var_num: int
-				var_name: str
-			}
-		]
-		var_in: [
-			{
-				var_num: int
-				var_name: str
-			}
-		]
-		var_out: [
-			{
-				var_num: int
-				var_name: str
-			}
-		]
-		var_tmp: [
-			{
-				var_num: int
-				var_name: str
-			}
-		]
-	}
+    {
+        block_index: int
+        var_def: [
+            {
+                var_num: int
+                var_name: str
+            }
+        ]
+        var_use: [
+            {
+                var_num: int
+                var_name: str
+            }
+        ]
+        var_in: [
+            {
+                var_num: int
+                var_name: str
+            }
+        ]
+        var_out: [
+            {
+                var_num: int
+                var_name: str
+            }
+        ]
+        var_tmp: [
+            {
+                var_num: int
+                var_name: str
+            }
+        ]
+    }
 ]
 - ssa = {
-	number_of_sccs: int
-	number_of_ssa_variables: int
-	ssa_variables: [
-		{
-			ssa_var_num: int
-			var_num: int
-			var_name: str
-			definition: int
-			definition_phi: {
-				pi: int
-				variable_index: int
-				variable: {
-					var_num: int
-					var_name: str
-				}
-				ssa_variable_index: int
-				current_block_index: int
-				visited: int
-				has_range_constraint: int
-				constraint: {
-					range_range_min: int
-					range_range_max: int
-					range_range_underflow: int
-					range_range_overflow: int
-					range_min_var: int
-					range_max_var: int
-					range_min_ssa_var: int
-					range_max_ssa_var: int
-				}
-				sources: [...int]
-			}
-			no_val: int
-			use_chain: int
-			escape_state: int
-			strongly_connected_component: int
-			strongly_connected_component_entry: int
+    number_of_sccs: int
+    number_of_ssa_variables: int
+    ssa_variables: [
+        {
+            ssa_var_num: int
+            var_num: int
+            var_name: str
+            definition: int
+            definition_phi: {
+                pi: int
+                variable_index: int
+                variable: {
+                    var_num: int
+                    var_name: str
+                }
+                ssa_variable_index: int
+                current_block_index: int
+                visited: int
+                has_range_constraint: int
+                constraint: {
+                    range_range_min: int
+                    range_range_max: int
+                    range_range_underflow: int
+                    range_range_overflow: int
+                    range_min_var: int
+                    range_max_var: int
+                    range_min_ssa_var: int
+                    range_max_ssa_var: int
+                }
+                sources: [...int]
+            }
+            no_val: int
+            use_chain: int
+            escape_state: int
+            strongly_connected_component: int
+            strongly_connected_component_entry: int
 
-		}
-	]
-	ssa_instructions: [
-		{
-			op1_use: int
-			op2_use: int
-			result_use: int
-			op1_def: int
-			op2_def: int
-			result_def: int
-			op1_use_chain: int
-			op2_use_chain: int
-			res_use_chain: int
-		}
-	]
-	ssa_blocks: [
-		{
-			block_index; int
-			phis; [
-				{
-					pi: int
-					variable_index: int
-					variable: {
-						var_num: int
-						var_name: str
-					}
-					ssa_variable_index: int
-					current_block_index: int
-					visited: int
-					has_range_constraint: int
-					constraint: {
-						range_range_min: int
-						range_range_max: int
-						range_range_underflow: int
-						range_range_overflow: int
-						range_min_var: int
-						range_max_var: int
-						range_min_ssa_var: int
-						range_max_ssa_var: int
-					}
-					sources: [...int]
-				}
-			]
-		}
-	]
+        }
+    ]
+    ssa_instructions: [
+        {
+            op1_use: int
+            op2_use: int
+            result_use: int
+            op1_def: int
+            op2_def: int
+            result_def: int
+            op1_use_chain: int
+            op2_use_chain: int
+            res_use_chain: int
+        }
+    ]
+    ssa_blocks: [
+        {
+            block_index; int
+            phis; [
+                {
+                    pi: int
+                    variable_index: int
+                    variable: {
+                        var_num: int
+                        var_name: str
+                    }
+                    ssa_variable_index: int
+                    current_block_index: int
+                    visited: int
+                    has_range_constraint: int
+                    constraint: {
+                        range_range_min: int
+                        range_range_max: int
+                        range_range_underflow: int
+                        range_range_overflow: int
+                        range_min_var: int
+                        range_max_var: int
+                        range_min_ssa_var: int
+                        range_max_ssa_var: int
+                    }
+                    sources: [...int]
+                }
+            ]
+        }
+    ]
 
 }
 ```
