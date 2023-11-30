@@ -4,7 +4,7 @@ A high-level Python API for converting PHP files into a PHP Bytecode Pydantic mo
 
 ## Why `php-bytecode-security-framework`
 
-Please visit <https://finixbit.github.io/site/posts/autonomous-Hacking-of-PHP-Web-Applications-at-the-Bytecode-Level>
+Please visit <https://finixbit.github.io/posts/autonomous-Hacking-of-PHP-Web-Applications-at-the-Bytecode-Level/>
 
 ## Requirements
 
